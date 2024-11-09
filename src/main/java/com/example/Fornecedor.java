@@ -1,6 +1,7 @@
 package com.example;
 
 public class Fornecedor {
+    private String nome;
     private double preco;
     private int qualidade;
     private int prazosEntrega;
@@ -9,7 +10,8 @@ public class Fornecedor {
     private int pontuacao;
 
     // Construtor
-    public Fornecedor(double preco, int qualidade) {
+    public Fornecedor(String nome,double preco, int qualidade) {
+        this.nome = nome;
         this.preco = preco;
         this.qualidade = qualidade;
         this.prazosEntrega = 0;
@@ -18,7 +20,14 @@ public class Fornecedor {
         this.pontuacao = 0;
     }
 
-    // Getters e Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public double getPreco() {
         return preco;
     }
@@ -69,7 +78,7 @@ public class Fornecedor {
 
     @Override
     public String toString() {
-        return "Fornecedor{" +
+        return "Fornecedor: " + nome + " {" +
                "preco=" + preco +
                ", qualidade=" + qualidade +
                ", prazosEntrega=" + prazosEntrega +
