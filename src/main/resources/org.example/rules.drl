@@ -1,0 +1,42 @@
+package com.example;
+
+rule "Avaliar Fornecedor com Preço Aceitável"
+when
+    $fornecedor : Fornecedor(preco < 1000)
+then
+    $fornecedor.setPontuacao($fornecedor.getPontuacao() + 20);
+    System.out.println("Fornecedor aceito com preço adequado");
+end
+
+rule "Avaliar Qualidade do Fornecedor"
+when
+    $fornecedor : Fornecedor(qualidade >= 8)
+then
+    $fornecedor.setPontuacao($fornecedor.getPontuacao() + 40);
+    System.out.println("Fornecedor aceito com boa qualidade");
+end
+
+rule "Avaliar Prazo de Entrega"
+when
+    $fornecedor : Fornecedor(prazosEntrega < 30)
+then
+    $fornecedor.setPontuacao($fornecedor.getPontuacao() + 10);
+    System.out.println("Fornecedor com bom histórico de entrega");
+end
+
+rule "Avaliar Reputação do Fornecedor"
+when
+    $fornecedor : Fornecedor(reputacao >= 4)
+then
+    $fornecedor.setPontuacao($fornecedor.getPontuacao() + 20);
+    System.out.println("Fornecedor com boa reputação");
+end
+
+rule "Avaliar Capacidade de Atendimento"
+when
+    $fornecedor : Fornecedor(capacidadeAtendimento >= 500)
+then
+    $fornecedor.setPontuacao($fornecedor.getPontuacao() + 10);
+    System.out.println("Fornecedor com boa capacidade de atendimento");
+end
+
